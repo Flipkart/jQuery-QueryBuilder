@@ -35,7 +35,10 @@
 
     // Handle array mode parameter
     if ( typeof target === "string" ) {
-      arrayMode = $([target.toLowerCase(), 'default']).filter(['default','concat','replace','extend'])[0];
+      //arrayMode = $([target.toLowerCase(), 'default']).filter(['default','concat','replace','extend'])[0];
+       arrayMode = [target.toLowerCase(), 'default'].filter(function(f){
+          return ['default','concat','replace','extend'].indexOf(f) !== -1;
+      })[0];
 
       // Skip the string param
       target = arguments[ i++ ] || {};
